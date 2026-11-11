@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /spasibo/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid
+
+Sitemap: https://michaelchumakov2007.github.io/hrvdele/sitemap.xml
