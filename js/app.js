@@ -270,12 +270,20 @@
       var b = e.target.closest("[data-cookie]");
       if (!b) return;
       var v = b.getAttribute("data-cookie");
+      var was = store.get("hr_cookie");
       store.set("hr_cookie", v);
       bar.classList.remove("is-on");
+      // Отозвали согласие после «Принять» — перезагружаем страницу, чтобы Метрика выключилась
+      if (was === "all" && v !== "all") { location.reload(); return; }
       if (v === "all") loadMetrika();
       window.dispatchEvent(new Event("hr:cookie"));
     });
   }
+
+  // «Настройки cookie» в подвале — снова показать окно выбора
+  document.addEventListener("click", function (e) {
+    if (bar && e.target.closest("[data-cookie-reset]")) bar.classList.add("is-on");
+  });
 
   /* Год в подвале */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });

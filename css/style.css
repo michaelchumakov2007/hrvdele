@@ -672,3 +672,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Длинный заголовок первого экрана (кадровый учёт) — чуть мельче, чтобы не занимал весь экран */
 .hero h1.h1--long { font-size: clamp(28px, 3.3vw, 46px); }
 @media (max-width: 640px) { .hero h1.h1--long { font-size: clamp(23px, 6.6vw, 30px); } }
+
+/* Кнопка «Настройки cookie» в подвале — выглядит как ссылка */
+.foot-cookie { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
