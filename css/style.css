@@ -678,3 +678,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Заголовок блока отзывов: стрелки остаются справа от заголовка */
 .reviews .sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; }
+
+/* Короткие списки цен и условий внутри карточек и ответов */
+.plist { display: grid; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+.plist li { position: relative; padding-left: 18px; line-height: 1.5; }
+.plist li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+.faq__a .plist + p, .faq__a p + .plist { margin-top: 10px; }
+.hero__text .lead + .lead { margin-top: -6px; }
