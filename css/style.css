@@ -685,3 +685,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 .plist li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
 .faq__a .plist + p, .faq__a p + .plist { margin-top: 10px; }
 .hero__text .lead + .lead { margin-top: -6px; }
+
+/* Правки Светланы: фото целиком, единые цены и выравнивание подвала. */
+@media (max-width: 960px) {
+  .photo-card--hero { aspect-ratio: auto; max-height: none; }
+  .photo-card--hero img { position: static; display: block; width: 100%; height: auto; object-fit: contain; }
+}
+#ceny.sit-grid .sit__foot { flex-direction: column; align-items: stretch; }
+#ceny.sit-grid .sit > .plist { grid-column: 1 / -1; }
+#ceny.sit-grid .sit__foot .btn { flex: none; }
+#ceny .svc > .btn { margin-top: auto; align-self: flex-start; }
+.channels-desc { margin-bottom: 20px; }
+.form-demo { padding: 16px; background: var(--blue-tint); border-radius: var(--r-md); }
+.form-demo a { text-decoration: underline; }
+.form input[readonly], .form textarea[readonly] { background: var(--bg); }
+.form button:disabled { cursor: default; }
+@media (min-width: 1101px) {
+  .footer__card > div { display: grid; grid-template-rows: 36px auto; align-content: start; row-gap: 14px; }
+  .footer__card .logo { align-self: start; }
+  .footer__h, .footer__about p { margin: 0; }
+  .footer ul { align-self: start; }
+  .footer li:first-child a { padding-top: 0; }
+}

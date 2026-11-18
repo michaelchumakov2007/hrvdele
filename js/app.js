@@ -174,6 +174,7 @@
   document.querySelectorAll("form[data-lead]").forEach(function (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
+      if (!form.getAttribute("data-endpoint")) return;
       var ok = true;
       form.querySelectorAll("[data-req]").forEach(function (inp) {
         var f = inp.closest(".field");
@@ -200,12 +201,11 @@
         if (window.ym && window.HR_METRIKA) window.ym(window.HR_METRIKA, "reachGoal", "lead");
         location.href = (window.HR_BASE || "/") + "spasibo/";
       };
-      if (!endpoint) { setTimeout(done, 500); return; }
       // Если сервер не ответил за 15 секунд — показываем ошибку, а не вечное «Отправляю…»
       var ctrl = window.AbortController ? new AbortController() : null;
       var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 15000);
       fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data), signal: ctrl && ctrl.signal })
-        .then(function (r) { return r.json(); })
+        .then(function (r) { if (!r.ok) throw new Error("send"); return r.json(); })
         .then(function (j) { clearTimeout(timer); if (!j.ok) throw new Error(j.error); done(); })
         .catch(function () {
           clearTimeout(timer);
@@ -226,6 +226,8 @@
   var autoMsg = "";
   document.querySelectorAll("[data-service]").forEach(function (a) {
     a.addEventListener("click", function () {
+      var service = document.querySelector("#lead input[name=service]");
+      if (service) service.value = a.getAttribute("data-service");
       var msg = document.querySelector("#lead textarea");
       if (!msg || (msg.value && msg.value !== autoMsg)) return;
       msg.value = autoMsg = "Интересует: " + a.getAttribute("data-service");
