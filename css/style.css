@@ -189,9 +189,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Hero ---------- */
 .hero { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr); gap: var(--gap); margin-top: var(--gap); }
 .hero__text { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 22px; min-height: 560px; }
-.hero h1 { font-size: clamp(30px, 4.1vw, 54px); line-height: 1.06; font-weight: 700; letter-spacing: -.03em; }
-.hero__note { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 15px; }
-.hero__note svg { width: 16px; height: 16px; color: var(--blue); flex: none; }
+.hero h1 { text-wrap: balance; font-size: clamp(30px, 4.1vw, 54px); line-height: 1.06; font-weight: 700; letter-spacing: -.03em; }
+.hero__note { display: flex; align-items: flex-start; gap: 8px; color: var(--muted); font-size: 15px; }
+.hero__geo { display: grid; gap: 6px; min-width: 0; }
+.hero__note svg { margin-top: 4px; width: 16px; height: 16px; color: var(--blue); flex: none; }
+.hero__text .lead, .hero__geo p { text-wrap: pretty; }
 .photo-card {
   position: relative; overflow: hidden; border-radius: var(--r-xl); background: #E9E8E4; min-height: 380px;
 }
