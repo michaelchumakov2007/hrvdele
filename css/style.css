@@ -662,9 +662,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .svc-link > svg { width: 20px; height: 20px; color: var(--blue); }
 
 /* Карточка «Что важно знать» среди карточек услуг */
-.sit--info { gap: 16px; }
+.sit--info { gap: 14px; }
+.sit--info .sit__head { min-height: 52px; }
+.svc.sit--info { gap: 18px; }
 .sit--info .checks li { font-size: 15px; }
-@media (max-width: 640px) { .sit.sit--info { display: flex; } }
+@media (max-width: 640px) {
+  .sit.sit--info { display: flex; }
+  .sit--info .sit__head { display: none; }
+}
 
 /* Блоки контактов */
 .contacts-h { margin: clamp(32px, 5vw, 56px) 0 16px; font-size: clamp(22px, 2.4vw, 30px); }
@@ -698,6 +703,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 #ceny.sit-grid .sit > .plist { grid-column: 1 / -1; }
 #ceny.sit-grid .sit__foot .btn { flex: none; }
 #ceny .svc > .btn { margin-top: auto; align-self: flex-start; }
+#ceny .svc .sit__foot { flex-direction: column; align-items: stretch; }
+#ceny .svc .sit__foot .btn { flex: none; }
 .channels-desc { margin-bottom: 20px; }
 .form-demo { padding: 16px; background: var(--blue-tint); border-radius: var(--r-md); }
 .form-demo a { text-decoration: underline; }
